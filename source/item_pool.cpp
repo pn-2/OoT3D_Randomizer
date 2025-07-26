@@ -15,14 +15,38 @@ using namespace Dungeon;
 std::vector<ItemKey> ItemPool               = {};
 std::vector<ItemKey> PendingJunkPool        = {};
 std::vector<u8> IceTrapModels               = {};
+
 const std::array<ItemKey, 9> dungeonRewards = {
-    KOKIRI_EMERALD,  GORON_RUBY,       ZORA_SAPPHIRE,    FOREST_MEDALLION, FIRE_MEDALLION,
-    WATER_MEDALLION, SPIRIT_MEDALLION, SHADOW_MEDALLION, LIGHT_MEDALLION,
+    KOKIRI_EMERALD,
+    GORON_RUBY,
+    ZORA_SAPPHIRE,
+    FOREST_MEDALLION,
+    FIRE_MEDALLION,
+    WATER_MEDALLION,
+    SPIRIT_MEDALLION,
+    SHADOW_MEDALLION,
+    LIGHT_MEDALLION,
 };
+
 const std::array<ItemKey, 16> JunkPoolItems = {
-    BOMBS_5,   BOMBS_10,  BOMBS_20,   DEKU_NUTS_5, DEKU_STICK_1, DEKU_SEEDS_30, RECOVERY_HEART, ARROWS_5,
-    ARROWS_10, ARROWS_30, BLUE_RUPEE, RED_RUPEE,   PURPLE_RUPEE, HUGE_RUPEE,    DEKU_NUTS_10,   ICE_TRAP,
+    BOMBS_5,
+    BOMBS_10,
+    BOMBS_20,
+    DEKU_NUTS_5,
+    DEKU_STICK_1,
+    DEKU_SEEDS_30,
+    RECOVERY_HEART,
+    ARROWS_5,
+    ARROWS_10,
+    ARROWS_30,
+    BLUE_RUPEE,
+    RED_RUPEE,
+    PURPLE_RUPEE,
+    HUGE_RUPEE,
+    DEKU_NUTS_10,
+    ICE_TRAP,
 };
+
 const std::array<ItemKey, 59> alwaysItems = {
     BIGGORON_SWORD,
     BOOMERANG,
@@ -41,49 +65,61 @@ const std::array<ItemKey, 59> alwaysItems = {
     FARORES_WIND,
     NAYRUS_LOVE,
     GREEN_RUPEE,
-    PROGRESSIVE_HOOKSHOT, // 2 progressive hookshots
+    // 2 progressive hookshots
+    PROGRESSIVE_HOOKSHOT,
     PROGRESSIVE_HOOKSHOT,
     DEKU_SHIELD,
     HYLIAN_SHIELD,
-    PROGRESSIVE_STRENGTH, // 3 progressive strength upgrades
+    // 3 progressive strength upgrades
     PROGRESSIVE_STRENGTH,
     PROGRESSIVE_STRENGTH,
-    PROGRESSIVE_SCALE, // 2 progressive scales
+    PROGRESSIVE_STRENGTH,
+    // 2 progressive scales
     PROGRESSIVE_SCALE,
-    PROGRESSIVE_BOW, // 3 progressive Bows
+    PROGRESSIVE_SCALE,
+    // 3 progressive Bows
+    PROGRESSIVE_BOW, 
     PROGRESSIVE_BOW,
     PROGRESSIVE_BOW,
-    PROGRESSIVE_SLINGSHOT, // 3 progressive bullet bags
+    // 3 progressive bullet bags
     PROGRESSIVE_SLINGSHOT,
     PROGRESSIVE_SLINGSHOT,
-    PROGRESSIVE_BOMB_BAG, // 3 progressive bomb bags
+    PROGRESSIVE_SLINGSHOT,
+    // 3 progressive bomb bags
     PROGRESSIVE_BOMB_BAG,
     PROGRESSIVE_BOMB_BAG,
-    PROGRESSIVE_WALLET, // 2 progressive wallets
+    PROGRESSIVE_BOMB_BAG,
+    // 2 progressive wallets
     PROGRESSIVE_WALLET,
-    PROGRESSIVE_MAGIC_METER, // 2 progressive magic meters
+    PROGRESSIVE_WALLET,
+    // 2 progressive magic meters
+    PROGRESSIVE_MAGIC_METER,
     PROGRESSIVE_MAGIC_METER,
     DOUBLE_DEFENSE,
-    PROGRESSIVE_STICK_UPGRADE, // 2 stick upgrades
+    // 2 stick upgrades
     PROGRESSIVE_STICK_UPGRADE,
-    PROGRESSIVE_NUT_UPGRADE, // 2 nut upgrades
+    PROGRESSIVE_STICK_UPGRADE,
+    // 2 nut upgrades
     PROGRESSIVE_NUT_UPGRADE,
-    RECOVERY_HEART, // 6 recovery hearts
+    PROGRESSIVE_NUT_UPGRADE,
+    // 6 recovery hearts
     RECOVERY_HEART,
     RECOVERY_HEART,
     RECOVERY_HEART,
     RECOVERY_HEART,
     RECOVERY_HEART,
-    BOMBS_5, // 2
+    RECOVERY_HEART,
+    BOMBS_5,
     BOMBS_5,
     BOMBS_10,
     BOMBS_20,
     ARROWS_5,
-    ARROWS_10, // 5
+    ARROWS_10,
     ARROWS_10,
     ARROWS_10,
     TREASURE_GAME_HEART,
 };
+
 const std::array<ItemKey, 44> easyItems = {
     BIGGORON_SWORD,
     KOKIRI_SWORD,
@@ -110,38 +146,32 @@ const std::array<ItemKey, 44> easyItems = {
     PROGRESSIVE_SLINGSHOT,
     PROGRESSIVE_BOMB_BAG,
     DOUBLE_DEFENSE,
-    HEART_CONTAINER, // 16 Heart Containers
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    HEART_CONTAINER,
-    PIECE_OF_HEART, // 3 heart pieces
-    PIECE_OF_HEART,
-    PIECE_OF_HEART,
+    // 16 Heart Containers
+    HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER,
+    HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER,
+    HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER,
+    HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER,
+    // 3 heart pieces
+    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
 };
+
 const std::array<ItemKey, 43> normalItems = {
-    PIECE_OF_HEART, // 35 pieces of heart
-    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
-    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
-    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
-    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
-    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
+    // 35 pieces of heart
+    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART, 
+    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART, 
     PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
-    HEART_CONTAINER, // 8 heart containers
-    HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER,
-    HEART_CONTAINER,
+    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
+    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART, 
+    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
+    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
+    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
+    PIECE_OF_HEART,  PIECE_OF_HEART,  PIECE_OF_HEART,
+    // 8 heart containers
+    HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER,
+    HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER, HEART_CONTAINER,
 };
+
+// Deku Tree
 const std::array<ItemKey, 2> DT_Vanilla = {
     RECOVERY_HEART,
     RECOVERY_HEART,
@@ -151,6 +181,8 @@ const std::array<ItemKey, 3> DT_MQ = {
     DEKU_SHIELD,
     PURPLE_RUPEE,
 };
+
+// Dodongo's Cavern
 const std::array<ItemKey, 1> DC_Vanilla = {
     RED_RUPEE,
 };
@@ -158,9 +190,19 @@ const std::array<ItemKey, 2> DC_MQ = {
     HYLIAN_SHIELD,
     BLUE_RUPEE,
 };
+
+// Jabu-Jabu's Belly
 const std::array<ItemKey, 7> JB_MQ = {
-    DEKU_NUTS_5, DEKU_NUTS_5, DEKU_NUTS_5, DEKU_NUTS_5, RECOVERY_HEART, DEKU_SHIELD, DEKU_STICK_1,
+    DEKU_NUTS_5,
+    DEKU_NUTS_5,
+    DEKU_NUTS_5,
+    DEKU_NUTS_5,
+    RECOVERY_HEART,
+    DEKU_SHIELD,
+    DEKU_STICK_1,
 };
+
+// Forest Temple
 const std::array<ItemKey, 3> FoT_Vanilla = {
     RECOVERY_HEART,
     ARROWS_10,
@@ -169,6 +211,8 @@ const std::array<ItemKey, 3> FoT_Vanilla = {
 const std::array<ItemKey, 1> FoT_MQ = {
     ARROWS_5,
 };
+
+// Fire Temple
 const std::array<ItemKey, 1> FiT_Vanilla = {
     HUGE_RUPEE,
 };
@@ -176,6 +220,8 @@ const std::array<ItemKey, 2> FiT_MQ = {
     BOMBS_20,
     HYLIAN_SHIELD,
 };
+
+// Spirit Temple
 const std::array<ItemKey, 4> SpT_Vanilla = {
     DEKU_SHIELD,
     DEKU_SHIELD,
@@ -187,6 +233,8 @@ const std::array<ItemKey, 3> SpT_MQ = {
     PURPLE_RUPEE,
     ARROWS_30,
 };
+
+// Shadow Temple
 const std::array<ItemKey, 1> ShT_Vanilla = {
     ARROWS_30,
 };
@@ -195,9 +243,13 @@ const std::array<ItemKey, 3> ShT_MQ = {
     ARROWS_5,
     RED_RUPEE,
 };
+
+// Bottom of the Well
 const std::array<ItemKey, 7> BW_Vanilla = {
     RECOVERY_HEART, BOMBS_10, HUGE_RUPEE, DEKU_NUTS_5, DEKU_NUTS_10, DEKU_SHIELD, HYLIAN_SHIELD,
 };
+
+// Gerudo Training Ground
 const std::array<ItemKey, 4> GTG_Vanilla = {
     ARROWS_30,
     ARROWS_30,
@@ -207,6 +259,8 @@ const std::array<ItemKey, 4> GTG_Vanilla = {
 const std::array<ItemKey, 5> GTG_MQ = {
     TREASURE_GAME_GREEN_RUPEE, TREASURE_GAME_GREEN_RUPEE, ARROWS_10, GREEN_RUPEE, PURPLE_RUPEE,
 };
+
+// Ganon's Castle
 const std::array<ItemKey, 4> GC_Vanilla = {
     BLUE_RUPEE,
     BLUE_RUPEE,
@@ -216,32 +270,38 @@ const std::array<ItemKey, 4> GC_Vanilla = {
 const std::array<ItemKey, 5> GC_MQ = {
     ARROWS_10, ARROWS_10, BOMBS_5, RED_RUPEE, RECOVERY_HEART,
 };
+
 const std::array<ItemKey, 11> normalBottles = {
     EMPTY_BOTTLE,          BOTTLE_WITH_MILK, BOTTLE_WITH_RED_POTION, BOTTLE_WITH_GREEN_POTION, BOTTLE_WITH_BLUE_POTION,
     BOTTLE_WITH_FAIRY,     BOTTLE_WITH_FISH, BOTTLE_WITH_BUGS,       BOTTLE_WITH_POE,          BOTTLE_WITH_BIG_POE,
     BOTTLE_WITH_BLUE_FIRE,
 };
+
 const std::array<ItemKey, 28> normalRupees = {
     BLUE_RUPEE,   BLUE_RUPEE,   BLUE_RUPEE,   BLUE_RUPEE,   BLUE_RUPEE,   BLUE_RUPEE,   BLUE_RUPEE,
     BLUE_RUPEE,   BLUE_RUPEE,   BLUE_RUPEE,   BLUE_RUPEE,   BLUE_RUPEE,   BLUE_RUPEE,   RED_RUPEE,
     RED_RUPEE,    RED_RUPEE,    RED_RUPEE,    RED_RUPEE,    PURPLE_RUPEE, PURPLE_RUPEE, PURPLE_RUPEE,
     PURPLE_RUPEE, PURPLE_RUPEE, PURPLE_RUPEE, PURPLE_RUPEE, HUGE_RUPEE,   HUGE_RUPEE,   HUGE_RUPEE,
 };
+
 const std::array<ItemKey, 28> shopsanityRupees = {
     BLUE_RUPEE,   BLUE_RUPEE,   RED_RUPEE,    RED_RUPEE,    RED_RUPEE,    RED_RUPEE,    RED_RUPEE,
     RED_RUPEE,    RED_RUPEE,    RED_RUPEE,    RED_RUPEE,    RED_RUPEE,    PURPLE_RUPEE, PURPLE_RUPEE,
     PURPLE_RUPEE, PURPLE_RUPEE, PURPLE_RUPEE, PURPLE_RUPEE, PURPLE_RUPEE, PURPLE_RUPEE, PURPLE_RUPEE,
     PURPLE_RUPEE, HUGE_RUPEE,   HUGE_RUPEE,   HUGE_RUPEE,   HUGE_RUPEE,   HUGE_RUPEE,   PROGRESSIVE_WALLET,
 };
+
 const std::array<ItemKey, 19> dekuScrubItems = {
     DEKU_NUTS_5,    DEKU_NUTS_5, DEKU_NUTS_5, DEKU_NUTS_5, DEKU_NUTS_5,    DEKU_STICK_1,   BOMBS_5,
     BOMBS_5,        BOMBS_5,     BOMBS_5,     BOMBS_5,     RECOVERY_HEART, RECOVERY_HEART, RECOVERY_HEART,
     RECOVERY_HEART, BLUE_RUPEE,  BLUE_RUPEE,  BLUE_RUPEE,  BLUE_RUPEE,
 };
+
 const std::array<ItemKey, 12> songList = {
     ZELDAS_LULLABY,   EPONAS_SONG,      SUNS_SONG,      SARIAS_SONG,       SONG_OF_TIME,       SONG_OF_STORMS,
     MINUET_OF_FOREST, PRELUDE_OF_LIGHT, BOLERO_OF_FIRE, SERENADE_OF_WATER, NOCTURNE_OF_SHADOW, REQUIEM_OF_SPIRIT,
 };
+
 const std::array<ItemKey, 10> tradeItems = {
     POCKET_EGG,
     // POCKET_CUCCO,
@@ -254,6 +314,8 @@ const std::array<ItemKey, 10> tradeItems = {
     EYEDROPS,
     CLAIM_CHECK,
 };
+
+// Enemy Souls
 const std::array<ItemKey, 47> enemySouls = {
     SOUL_ITEM_POE,          SOUL_ITEM_OCTOROK,       SOUL_ITEM_KEESE,       SOUL_ITEM_TEKTITE,    SOUL_ITEM_LEEVER,
     SOUL_ITEM_PEAHAT,       SOUL_ITEM_LIZALFOS,      SOUL_ITEM_SHABOM,      SOUL_ITEM_BIRI_BARI,  SOUL_ITEM_TAILPASARAN,
@@ -270,6 +332,8 @@ const std::array<ItemKey, 9> bossSouls = {
     SOUL_ITEM_GOHMA,  SOUL_ITEM_DODONGO,     SOUL_ITEM_BARINADE, SOUL_ITEM_PHANTOM_GANON, SOUL_ITEM_VOLVAGIA,
     SOUL_ITEM_MORPHA, SOUL_ITEM_BONGO_BONGO, SOUL_ITEM_TWINROVA, SOUL_ITEM_GANON,
 };
+
+// Ocarina Buttons
 const std::array<ItemKey, 5> ocarinaNoteButtons = {
     OCA_BUTTON_ITEM_L, OCA_BUTTON_ITEM_R, OCA_BUTTON_ITEM_X, OCA_BUTTON_ITEM_Y, OCA_BUTTON_ITEM_A,
 };
@@ -376,8 +440,7 @@ static void PlaceVanillaDekuScrubItems() {
         PlaceItemInLocation(DODONGOS_CAVERN_MQ_DEKU_SCRUB_LOBBY_REAR, DEKU_STICK_1, false, true);
         PlaceItemInLocation(DODONGOS_CAVERN_MQ_DEKU_SCRUB_LOBBY_FRONT, DEKU_SEEDS_30, false, true);
         PlaceItemInLocation(DODONGOS_CAVERN_MQ_DEKU_SCRUB_STAIRCASE, DEKU_SHIELD, false, true);
-        PlaceItemInLocation(DODONGOS_CAVERN_MQ_DEKU_SCRUB_SIDE_ROOM_NEAR_LOWER_LIZALFOS, RED_POTION_REFILL, false,
-                            true);
+        PlaceItemInLocation(DODONGOS_CAVERN_MQ_DEKU_SCRUB_SIDE_ROOM_NEAR_LOWER_LIZALFOS, RED_POTION_REFILL, false, true);
     } else {
         PlaceItemInLocation(DODONGOS_CAVERN_DEKU_SCRUB_NEAR_BOMB_BAG_LEFT, DEKU_NUTS_5, false, true);
         PlaceItemInLocation(DODONGOS_CAVERN_DEKU_SCRUB_SIDE_ROOM_NEAR_DODONGOS, DEKU_STICK_1, false, true);
