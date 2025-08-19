@@ -7,12 +7,13 @@ TrialInfo::TrialInfo(Text name_) : name(std::move(name_)) {
 // clang-format off
 TrialInfo::~TrialInfo() = default;
 
-    TrialInfo ForestTrial = TrialInfo(Text{"the Forest Trial", /*french*/"l'épreuve de la forêt",   /*spanish*/"la prueba del bosque",     /*italian*/"la Barriera della Foresta", /*german*/"das Wald-Siegel"});
-    TrialInfo FireTrial   = TrialInfo(Text{"the Fire Trial",   /*french*/"l'épreuve du feu",        /*spanish*/"la prueba del fuego",      /*italian*/"la Barriera del Fuoco",     /*german*/"das Feuer-Siegel"});
-    TrialInfo WaterTrial  = TrialInfo(Text{"the Water Trial",  /*french*/"l'épreuve de l'eau",      /*spanish*/"la prueba del agua",       /*italian*/"la Barriera dell'Acqua",    /*german*/"das Wasser-Siegel"});
-    TrialInfo SpiritTrial = TrialInfo(Text{"the Spirit Trial", /*french*/"l'épreuve de l'esprit",   /*spanish*/"la prueba del espíritu",   /*italian*/"la Barriera dello Spirito", /*german*/"das Geister-Siegel"});
-    TrialInfo ShadowTrial = TrialInfo(Text{"the Shadow Trial", /*french*/"l'épreuve de l'ombre",    /*spanish*/"la prueba de las sombras", /*italian*/"la Barriera dell'Ombra",    /*german*/"das Schatten-Siegel"});
-    TrialInfo LightTrial  = TrialInfo(Text{"the Light Trial",  /*french*/"l'épreuve de la lumière", /*spanish*/"la prueba de la luz",      /*italian*/"la Barriera della Luce",    /*german*/"das Licht-Siegel"});
+    //                                     English              French                      Spanish                     Italian                         German
+    TrialInfo ForestTrial = TrialInfo(Text{"the Forest Trial",  "l'Épreuve de la Forêt",    "la prueba del bosque",     "la Barriera della Foresta",    "das Wald-Siegel"});
+    TrialInfo FireTrial   = TrialInfo(Text{"the Fire Trial",    "l'Épreuve du Feu",         "la prueba del fuego",      "la Barriera del Fuoco",        "das Feuer-Siegel"});
+    TrialInfo WaterTrial  = TrialInfo(Text{"the Water Trial",   "l'Épreuve de l'Eau",       "la prueba del agua",       "la Barriera dell'Acqua",       "das Wasser-Siegel"});
+    TrialInfo SpiritTrial = TrialInfo(Text{"the Spirit Trial",  "l'Épreuve de l'Esprit",    "la prueba del espíritu",   "la Barriera dello Spirito",    "das Geister-Siegel"});
+    TrialInfo ShadowTrial = TrialInfo(Text{"the Shadow Trial",  "l'Épreuve de l'Ombre",     "la prueba de las sombras", "la Barriera dell'Ombra",       "das Schatten-Siegel"});
+    TrialInfo LightTrial  = TrialInfo(Text{"the Light Trial",   "l'Épreuve de la Lumière",  "la prueba de la luz",      "la Barriera della Luce",       "das Licht-Siegel"});
 
 const TrialArray trialList = {
     &ForestTrial, &FireTrial, &WaterTrial, &SpiritTrial, &ShadowTrial, &LightTrial,
