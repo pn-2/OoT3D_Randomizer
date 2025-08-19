@@ -73,6 +73,18 @@ endif
 # Enable this to skip building the basecode patches
 app_only ?= 0
 
+# Language Option to generate multi-language application
+LANGUAGE ?= en
+
+ifeq ($(LANGUAGE), en)
+    CFLAGS += -DLANG_EN
+	CXXFLAGS += -DLANG_EN
+endif
+ifeq ($(LANGUAGE), fr)
+    CFLAGS += -DLANG_FR
+	CXXFLAGS += -DLANG_FR
+endif
+
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
 # include and lib
@@ -183,9 +195,9 @@ delete3DSX:
 
 create_basecode:
 ifeq ($(app_only), 0)
-	@$(MAKE) --no-print-directory REGION=USA -C code
+	@$(MAKE) --no-print-directory REGION=USA LANGUAGE=$(LANGUAGE) -C code 
 	@mv code/basecode_USA.ips $(ROMFS)
-	@$(MAKE) --no-print-directory REGION=EUR -C code
+	@$(MAKE) --no-print-directory REGION=EUR LANGUAGE=$(LANGUAGE) -C code
 	@mv code/basecode_EUR.ips $(ROMFS)
 endif
 

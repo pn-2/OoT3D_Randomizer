@@ -91,6 +91,16 @@ ifneq ($(debug), 0)
 	CXXFLAGS += -g -DENABLE_DEBUG
 endif
 
+# Language Option to generate multi-language application
+ifeq ($(LANGUAGE), en)
+    CFLAGS += -DLANG_EN
+	CXXFLAGS += -DLANG_EN
+endif
+ifeq ($(LANGUAGE), fr)
+    CFLAGS += -DLANG_FR
+	CXXFLAGS += -DLANG_FR
+endif
+
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
 # include and lib
