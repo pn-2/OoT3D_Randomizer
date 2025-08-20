@@ -123,7 +123,7 @@ int GetShopsanityReplaceAmount() {
 }
 
 // Initialize the table of trick names with an easy, medium, and hard name for each language
-void InitTrickNames() {
+void InitTrickNames() {//English                French                                  Spanish                                 Italian                                     German
     trickNameTable[GI_SWORD_KOKIRI] = {
         Text{"Korok Sword",                     "Épée Korok",                           "Espada Korok",                         "Spada dei Korogu",                         "Korok-Schwert"},
         Text{"Hero's Sword",                    "Épée du Héros",                        "Espada del héroe",                     "Spada dell'eroe",                          "Heroenschwert"},
