@@ -100,6 +100,18 @@ ifeq ($(LANGUAGE), fr)
     CFLAGS += -DLANG_FR
 	CXXFLAGS += -DLANG_FR
 endif
+ifeq ($(LANGUAGE), es)
+	CFLAGS += -DLANG_ES
+	CXXFLAGS += -DLANG_ES
+endif
+ifeq ($(LANGUAGE), it)
+	CFLAGS += -DLANG_IT
+	CXXFLAGS += -DLANG_IT
+endif
+ifeq ($(LANGUAGE), de)
+	CFLAGS += -DLANG_DE
+	CXXFLAGS += -DLANG_DE
+endif
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
