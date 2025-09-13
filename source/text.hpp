@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <array>
 
 #define PLURAL 0
 #define SINGULAR 1
@@ -9,17 +10,28 @@
 class Text {
   public:
     Text() = default;
+
+    // Generic text for all languages
     Text(std::string generic)
         : NAenglish(generic), NAfrench(generic), NAspanish(generic), EURenglish(generic), EURfrench(generic),
           EURspanish(generic), EURitalian(generic), EURgerman(std::move(generic)) {
     }
 
+    // One text per language (common text for US and EU regions)
     Text(std::string english_, std::string french_, std::string spanish_, std::string italian_, std::string german_)
         : NAenglish(english_), NAfrench(french_), NAspanish(spanish_), EURenglish(std::move(english_)),
           EURfrench(std::move(french_)), EURspanish(std::move(spanish_)), EURitalian(std::move(italian_)),
           EURgerman(std::move(german_)) {
     }
 
+    // One text per language (distinction across regions for french only)
+    Text(std::string english_, std::array<std::string, 2> french_, std::string spanish_, std::string italian_, std::string german_)
+        : NAenglish(english_), NAfrench(std::move(french_[0])), NAspanish(spanish_), EURenglish(std::move(english_)),
+          EURfrench(std::move(french_[1])), EURspanish(std::move(spanish_)), EURitalian(std::move(italian_)),
+          EURgerman(std::move(german_)) {
+    }
+
+    // One text per language and region
     Text(std::string NAenglish_, std::string NAfrench_, std::string NAspanish_, std::string EURenglish_,
          std::string EURfrench_, std::string EURspanish_, std::string EURitalian_, std::string EURgerman_)
         : NAenglish(std::move(NAenglish_)), NAfrench(std::move(NAfrench_)), NAspanish(std::move(NAspanish_)),
